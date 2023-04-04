@@ -1,9 +1,11 @@
+
 # plugin manager: https://github.com/tmux-plugins/tpm
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 
 # color theme
-set -g @plugin "arcticicestudio/nord-tmux"
+set -g @plugin 'catppuccin/tmux'
+set -g @catppuccin_window_tabs_enabled on
 
 # set the tmux prefix to backtick, instead of C-b
 unbind C-b
