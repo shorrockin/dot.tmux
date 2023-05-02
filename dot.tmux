@@ -11,6 +11,9 @@ unbind C-b
 set-option -g prefix `
 bind ` send-prefix
 
+# when we destroy a session, don't detach from tmux, go to the next session
+set-option -g detach-on-destroy off
+
 # sets up the tmux splitting, vertically & horizontal
 bind - split-window -v
 bind _ split-window -h
