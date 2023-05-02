@@ -38,7 +38,6 @@ bind -r K resize-pane -U 2
 bind -r L resize-pane -R 2
 
 bind s display-popup -E "~/.zsh/scripts/tmux-sessionizer"
-bind S display-popup -E "~/.zsh/scripts/tmux-sessionizer switch"
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
