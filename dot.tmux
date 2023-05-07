@@ -40,6 +40,12 @@ bind -r J resize-pane -D 2
 bind -r K resize-pane -U 2
 bind -r L resize-pane -R 2
 
+# set base window numbers for tmux to start at 1 instead of 0
+set -g base-index 1
+set -g pane-base-index 1
+set-window-option -g pane-base-index 1
+set-option -g renumber-windows on
+
 # bind r to re-source this file
 bind r source-file ~/.tmux.conf
 
@@ -49,12 +55,19 @@ set -g mouse on
 # source: https://github.com/christoomey/vim-tmux-navigator
 # sets up tmux and vim to ctrl-[direction] keys interchangably between the two 
 set -g @plugin 'christoomey/vim-tmux-navigator'
-run '~/.tmux/plugins/tpm/tpm
+run '~/.tmux/plugins/tpm/tpm'
 
 # bound to both <leader>s and ctrl-s, allows us to create a new session from a 
 # list of project directories with intelligent tab completion
-bind s display-popup -E "~/.zsh/scripts/tmux-sessionizer"
-bind-key -n C-s display-popup -E "~/.zsh/scripts/tmux-sessionizer"
+bind s display-popup -E '~/.zsh/scripts/tmux-sessionizer'
+bind-key -n C-s display-popup -E '~/.zsh/scripts/tmux-sessionizer'
+
+# source: https://github.com/tmux-plugins/tmux-yank 
+set -g @plugin 'tmux-plugins/tmux-yank'
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
