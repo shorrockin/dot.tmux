@@ -40,7 +40,21 @@ bind -r J resize-pane -D 2
 bind -r K resize-pane -U 2
 bind -r L resize-pane -R 2
 
+# bind r to re-source this file
+bind r source-file ~/.tmux.conf
+
+# allows mouse editing (requires tmux 2.1 or higher)
+set -g mouse on
+
+# source: https://github.com/christoomey/vim-tmux-navigator
+# sets up tmux and vim to ctrl-[direction] keys interchangably between the two 
+set -g @plugin 'christoomey/vim-tmux-navigator'
+run '~/.tmux/plugins/tpm/tpm
+
+# bound to both <leader>s and ctrl-s, allows us to create a new session from a 
+# list of project directories with intelligent tab completion
 bind s display-popup -E "~/.zsh/scripts/tmux-sessionizer"
+bind-key -n C-s display-popup -E "~/.zsh/scripts/tmux-sessionizer"
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
