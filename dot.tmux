@@ -62,6 +62,9 @@ run '~/.tmux/plugins/tpm/tpm'
 bind s display-popup -E '~/.zsh/scripts/tmux-sessionizer'
 bind-key -n C-s display-popup -E '~/.zsh/scripts/tmux-sessionizer'
 
+# binds the Ctrl+b key to refresh the current tmux client, and clear the history
+bind-key -n C-b send-keys -R \; clear-history
+
 # source: https://github.com/tmux-plugins/tmux-yank 
 set -g @plugin 'tmux-plugins/tmux-yank'
 set-window-option -g mode-keys vi
